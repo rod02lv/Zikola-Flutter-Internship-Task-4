@@ -8,6 +8,8 @@ import '../dependency_injection.dart';
 import 'route_names.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+
 final GoRouter appRouter = GoRouter(
   initialLocation: RouteNames.splash,
   routes: [

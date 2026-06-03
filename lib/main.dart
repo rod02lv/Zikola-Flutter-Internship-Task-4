@@ -4,6 +4,7 @@ import 'config/dependency_injection.dart';
 import 'package:flutter/services.dart';
 
 import 'config/routes/app_routers.dart';
+import 'core/auth/auth_event_listener.dart';
 import 'core/theme/app_theme.dart';
 import 'features/auth/logic/auth_cubit/auth_cubit.dart';
 import 'features/startup/screens/splash_screen.dart';
@@ -13,7 +14,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await setupDependencyInjection();
-  WidgetsFlutterBinding.ensureInitialized();
+  AuthEventListener.init();
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
