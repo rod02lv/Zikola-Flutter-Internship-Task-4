@@ -1,11 +1,12 @@
 import 'package:zikola_project/core/network/api_endpoints.dart';
-import 'package:zikola_project/features/auth/data/models/LoginRequestModel.dart';
+import 'package:zikola_project/features/auth/data/models/login/LoginRequestModel.dart';
 
-import 'package:zikola_project/features/auth/data/models/LoginResponseModel.dart';
+import 'package:zikola_project/features/auth/data/models/login/LoginResponseModel.dart';
 
 import '../../../../core/network/api_consumer.dart';
 import '../../../../core/storage/secure_storage_service.dart';
 import '../../domain/repositories/auth_repository.dart';
+import '../models/register/register_request_model.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final ApiConsumer apiConsumer;
@@ -26,5 +27,12 @@ class AuthRepositoryImpl implements AuthRepository {
       refreshToken: loginResponse.refreshToken,
     );
     return loginResponse; //object of login response model
+  }
+
+  Future<void> register(
+      RegisterRequestModel request
+      )async{
+
+    await apiConsumer.post(ApiEndpoints.users,data: request.toJson());
   }
 }

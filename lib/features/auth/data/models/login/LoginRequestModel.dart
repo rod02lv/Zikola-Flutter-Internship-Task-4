@@ -1,4 +1,4 @@
-import '../../../../core/network/api_keys.dart';
+import '../../../../../core/network/api_keys.dart';
 
 class LoginRequestModel {
   String email;

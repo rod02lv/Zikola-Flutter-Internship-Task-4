@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zikola_project/features/auth/data/models/register/register_request_model.dart';
 
 import '../../domain/repositories/auth_repository.dart';
-import '../../data/models/LoginRequestModel.dart';
+import '../../data/models/login/LoginRequestModel.dart';
 
 import 'auth_state.dart';
 
@@ -19,6 +20,26 @@ class AuthCubit extends Cubit<AuthState> {
       emit(LoginSuccess());
     } catch (e) {
       emit(LoginError(e.toString()));
+    }
+  }
+
+  Future<void> register({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    emit(RegisterLoading());
+
+    try {
+      final request = RegisterRequestModel(
+        name: name,
+        email: email,
+        password: password,
+        avatar: "assets/images/avatar1.jpg",
+      );
+      await authRepository.register(request);
+    } catch (e) {
+      emit(RegisterError(e.toString()));
     }
   }
 }

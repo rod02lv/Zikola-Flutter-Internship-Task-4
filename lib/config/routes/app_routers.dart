@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:zikola_project/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:zikola_project/features/auth/presentation/screens/register_screen.dart';
 import '../../features/auth/logic/auth_cubit/auth_cubit.dart';
 import '../../features/auth/presentation/screens/sign_in_screen.dart';
 import '../../features/startup/screens/onboarding_screen.dart';
